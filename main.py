@@ -1,3 +1,7 @@
+from flask import Flask, render_template, request
+app = Flask(__name__)
+
+
 morse_code = {
   "0": "-----",
   "1": ".----",
@@ -56,6 +60,7 @@ morse_code = {
   " ":".......",
 }
 
+
 def encode_to_morse_code(words):
     words_morse = ""
     for letter in words.lower():
@@ -72,10 +77,17 @@ def decode_from_morse_code(codes):
     return code_words.capitalize()
 
 
-words = input("Enter words to encode to morse code: ")
-print(f"\n{encode_to_morse_code(words)}")
+@app.route('/morse', methods=["GET","POST"])
+def morse():
+  words = request.form["words"]
+  words_to_morse = encode_to_morse_code(words)
+  return render_template('index.html',words_to_morse=words_to_morse)
 
-codes = input("Enter words to decode from morse code: ")
-print(f"\n{decode_from_morse_code(codes)}")
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 
+if __name__ == "__main__":
+    app.run(debug=True)
