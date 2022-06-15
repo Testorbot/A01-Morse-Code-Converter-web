@@ -1,5 +1,11 @@
 from flask import Flask, render_template, request
-app = Flask(__name__)
+import random
+
+app = Flask(  # Create a flask app
+	__name__,
+	template_folder='templates',  # Name of html file folder
+	static_folder='static'  # Name of directory for static files
+)
 
 
 morse_code = {
@@ -79,9 +85,9 @@ def decode_from_morse_code(codes):
 
 @app.route('/morse', methods=["GET","POST"])
 def morse():
-  words = request.form["words"]
-  words_to_morse = encode_to_morse_code(words)
-  return render_template('index.html',words_to_morse=words_to_morse)
+  codes = request.form["codes"]
+  codes = decode_from_morse_code(codes)
+  return render_template('index.html',codes=codes)
 
 
 @app.route('/')
@@ -90,4 +96,8 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+  app.run(  # Starts the site
+    host='0.0.0.0',  # EStablishes the host, required for repl to detect the site
+    port=random.randint(2000, 9000),  # Randomly select the port the machine hosts on.
+    debug=True
+  )

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Morse Code Converter</title>
+		<title>Morse Code Decoder</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -17,15 +17,15 @@
 		<div class="wrapper">
 			<div class="inner">
 				<form action="{{ url_for('morse') }}" method="POST">
-					<h3>Morse Code Converter</h3>
-					<p>Enter the text to be converted.</p>
+					<h3>Morse Code Decoder</h3>
+					<p>Enter the morse code to be decoded.</p>
 					<label class="form-group">
-						<input type="text" class="form-control" id="words" name="words" placeholder="Text to convert">
-						<span>Text to convert</span>
+						<input type="text" class="form-control" id="codes" name="codes" placeholder="Morse code to be converted">
+						<span>Morse code to decode</span>
 						<span class="border"></span>
 					</label>
-					<span class="form-group">Morse Code:</span>
-					<h4>{{words_to_morse}}</h4>
+					<span class="form-group">Morse Code Decoded:</span>
+					<h4>{{codes}}</h4>
 					<button type="submit">Convert</button>
 				</form>
 
