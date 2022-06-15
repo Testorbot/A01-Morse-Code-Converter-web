@@ -17,15 +17,15 @@
 		<div class="wrapper">
 			<div class="inner">
 				<form action="{{ url_for('morse') }}" method="POST">
-					<h3>Morse Code Decoder</h3>
-					<p>Enter the morse code to be decoded.</p>
+					<h3>Morse Code Encoder</h3>
+					<p>Enter the text to be encoded to Morse Code.</p>
 					<label class="form-group">
-						<input type="text" class="form-control" id="codes" name="codes" placeholder="Morse code to be converted">
-						<span>Morse code to decode</span>
+						<input type="text" class="form-control" id="words" name="words" placeholder="Text to be encoded to Morse Code">
+						<span>Text to be encoded to Morse Code</span>
 						<span class="border"></span>
 					</label>
-					<span class="form-group">Morse Code Decoded:</span>
-					<h4>{{codes}}</h4>
+					<span class="form-group">Morse Code</span>
+					<h4>{{words_codes}}</h4>
 					<button type="submit">Convert</button>
 				</form>
 
