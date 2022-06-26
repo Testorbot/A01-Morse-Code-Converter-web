@@ -94,7 +94,7 @@ def morse():
     return render_template('index.html',
                            to_codes=words_to_codes,
                            words=words,
-                           to_text=codes_to_text,
+                           to_text=codes_to_text.capitalize(),
                            codes=codes)
 
 
