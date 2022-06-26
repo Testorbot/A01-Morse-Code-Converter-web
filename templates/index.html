@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Morse Code Decoder</title>
+		<title>Morse Code Encoder / Decoder</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -17,16 +17,36 @@
 		<div class="wrapper">
 			<div class="inner">
 				<form action="{{ url_for('morse') }}" method="POST">
-					<h3>Morse Code Encoder</h3>
-					<p>Enter the text to be encoded to Morse Code.</p>
+					<h3>Morse Code Encoder / Decoder</h3>
+					<p>Enter the text to be encoded to Morse Code<br>
+					OR<br>
+					Enter the Morse Code to be decoded to text</p>
 					<label class="form-group">
 						<input type="text" class="form-control" id="words" name="words" placeholder="Text to be encoded to Morse Code">
 						<span>Text to be encoded to Morse Code</span>
 						<span class="border"></span>
 					</label>
-					<span class="form-group">Morse Code</span>
-					<h4>{{words_codes}}</h4>
+					<label class="form-group">
+						<input type="text" class="form-control" id="codes" name="codes" placeholder="Morse code to be converted">
+						<span>Morse code to decode</span>
+						<span class="border"></span>
+					</label>
 					<button type="submit">Convert</button>
+
+					{% if to_codes: %}
+					<span class="form-group">Text</span>
+					<h4>{{words}}</h4>
+					<span class="form-group">Morse Code</span>
+					<h4>{{to_codes}}</h4>
+					{% endif %}
+
+					{% if to_text: %}
+					<span class="form-group">Morse Code</span>
+					<h4>{{codes}}</h4>
+					<span class="form-group">Text</span>
+					<h4>{{to_text}}</h4>
+					{% endif %}
+
 				</form>
 
 			</div>

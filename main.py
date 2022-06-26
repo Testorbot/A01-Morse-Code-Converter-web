@@ -86,8 +86,16 @@ def decode_from_morse_code(codes):
 @app.route('/morse', methods=["GET","POST"])
 def morse():
     words = request.form["words"]
-    words_codes = encode_to_morse_code(words)
-    return render_template('index.html',words_codes=words_codes)
+    words_to_codes = encode_to_morse_code(words)
+
+    codes = request.form["codes"]
+    codes_to_text = decode_from_morse_code(codes)
+
+    return render_template('index.html',
+                           to_codes=words_to_codes,
+                           words=words,
+                           to_text=codes_to_text,
+                           codes=codes)
 
 
 @app.route('/')
