@@ -91,7 +91,7 @@ def morse():
     codes = request.form["codes"]
     codes_to_text = decode_from_morse_code(codes)
 
-    if ("never gonna let you down" in words) or ("never gonna give you up" in words) or ("never gonna let you down" in codes_to_text) or ("never gonna give you up" in codes_to_text):
+    if ("never gonna let you down" in words) or ("never gonna give you up" in words) or ("never gonna run around and desert you" in words) or ("never gonna let you down" in codes_to_text) or ("never gonna give you up" in codes_to_text) or ("never gonna run around and desert you" in codes_to_text):
         ricked = True
     else:
         ricked = False
