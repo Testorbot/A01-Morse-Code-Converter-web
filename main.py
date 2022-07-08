@@ -91,7 +91,13 @@ def morse():
     codes = request.form["codes"]
     codes_to_text = decode_from_morse_code(codes)
 
+    if ("never gonna let you down" in words) or ("never gonna give you up" in words) or ("never gonna let you down" in codes_to_text) or ("never gonna give you up" in codes_to_text):
+        ricked = True
+    else:
+        ricked = False
+
     return render_template('index.html',
+                           ricked=ricked,
                            to_codes=words_to_codes,
                            words=words,
                            to_text=". ".join([ind_line.capitalize() for ind_line in codes_to_text.split(". ")]),

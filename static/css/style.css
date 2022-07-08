@@ -123,6 +123,13 @@ p {
       .form-control:focus + span + .border, .form-control:valid + span + .border {
         transform: scaleX(1); }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 textarea.form-control {
   padding-top: 10px;
   padding-bottom: 10px; }
@@ -208,5 +215,6 @@ button {
   .wrapper {
     background: #39459b;
     border: 10px solid #0d99d7; } }
+
 
 /*# sourceMappingURL=style.css.map */
